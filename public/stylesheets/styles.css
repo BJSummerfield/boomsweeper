@@ -4,8 +4,8 @@ h1 {
 .cell-container {
 	justify-content: center;
 	display: grid;
-	grid-template-columns: 30px 30px;
-	grid-template-rows: 30px	30px;
+/*	grid-template-columns: 30px 30px;
+	grid-template-rows: 30px	30px;*/
 	grid-gap: 2px
 }
 
@@ -23,4 +23,19 @@ h1 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.beginner {
+	grid-template-columns: repeat(8, 30px);
+	grid-template-rows: repeat(8, 30px);
+}
+
+.intermediate {
+	grid-template-columns: repeat(16, 30px);
+	grid-template-rows: repeat(16, 30px);
+}
+
+.expert {
+	grid-template-columns: repeat(30, 30px);
+	grid-template-rows: repeat(16, 30px);
 }

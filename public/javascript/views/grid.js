@@ -8,7 +8,7 @@ class Grid {
 
 	addListeners() {
 		this.element.addEventListener('click', () => {
-			this.reveal(event.target.className[0])
+			this.reveal(event.target.classList[0])
 		})
 	}
 
@@ -41,7 +41,8 @@ class Grid {
 		this.board.forEach(function(cell) {
 			if (cell.reveal == false) {
 				element.childNodes[counter].className = counter + ' hidden'
-			} else { 
+			}
+			if (cell.reveal == true) { 
 				element.childNodes[counter].className = counter + ' reveal'
 				element.childNodes[counter].innerHTML = template(cell.value)
 			}
