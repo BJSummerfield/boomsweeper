@@ -2,7 +2,6 @@ class Grid {
 	constructor({ element, board }) {
 		this.element = element
 		this.board = board
-		
 		this.addListeners()
 	}
 
