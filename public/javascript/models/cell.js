@@ -4,5 +4,4 @@ class Cell {
 		this.reveal = reveal;
 	}
 }
-
 export default Cell

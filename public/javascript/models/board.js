@@ -61,7 +61,7 @@ class Board {
           }
         })
       })
-      
+
       if (i == (this.rows * this.columns) - this.booms) {
         console.log('You Win!')
       }

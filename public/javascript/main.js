@@ -7,12 +7,3 @@ console.log(board)
 const cells = document.querySelector('.cell-container');
 const grid = new Grid({ element: cells, board, GRID_SIZE })
 grid.boardSetup()
-
-
-
-
-
-
-
-
-// get board to render the full board
