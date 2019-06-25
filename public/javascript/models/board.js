@@ -5,6 +5,7 @@ class Board {
     this.rows = rows
     this.columns = columns
     this.cells = []
+    this.win = false
     this.createBoard()
     this.shuffleBoard()
     this.gridTheBoard()
@@ -61,9 +62,8 @@ class Board {
           }
         })
       })
-
       if (i == (this.rows * this.columns) - this.booms) {
-        console.log('You Win!')
+        this.win = true
       }
     }
 

@@ -1,6 +1,11 @@
-h1 {
+.title {
 	text-align: center;
 }
+
+body{
+	background-color: #f4f4f2;
+}
+
 .cell-container {
 	justify-content: center;
 	display: grid;
@@ -15,6 +20,8 @@ h1 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-weight: bold;
+	font-size: 18pt;
 }
 
 .hidden {
@@ -38,4 +45,39 @@ h1 {
 .expert {
 	grid-template-columns: repeat(30, 30px);
 	grid-template-rows: repeat(16, 30px);
+}
+
+.value1 {
+	color: blue;
+}
+
+.value2 {
+	color: green;
+}
+
+.value3 {
+	color: red;
+}
+
+.value4 {
+	color: purple;
+}
+.value5 {
+	color: maroon
+}
+
+.value6 {
+	color: #40E0D0
+}
+
+.value7 {
+	color: black;
+}
+
+.value8 {
+	color: grey;
+}
+
+.valueX {
+	background-color: #c1c1c1;
 }

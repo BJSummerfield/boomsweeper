@@ -1,27 +1,30 @@
 class Grid {
-	constructor({ element, board, GRID_SIZE }) {
+	constructor({ element, board }) {
 		this.element = element
 		this.board = board
-		this.size = GRID_SIZE
+		this.message = null
 		this.addListeners()
 	}
 
 	addListeners() {
-		this.element.addEventListener('click', () => {
-			
-			// convert single array index into grid coordinates
-			var index = event.target.classList[0]
-			var i = Math.floor(index / this.size)
-			var j = index % this.size
-			
-			if(this.board.cells[i][j].value == 'X') {
-				this.gameOver(). //-add gameover fluff here
-			} else {
-				this.board.reveal(i, j)
-			}
-			this.render()
-			this.board.checkWin()
+		this.element.addEventListener('click', () => {this.leftEvent()
 		})
+	}
+
+	leftEvent() {
+		var index = event.target.classList[0]
+		var i = Math.floor(index / this.board.columns)
+		var j = index % this.board.rows
+		
+		this.board.reveal(i, j)
+		this.board.checkWin()
+		if(this.board.cells[i][j].value == 'X') {
+			this.gameLose() //-add gameLose fluff here
+		}
+		if (this.board.win == true) {
+			this.gameWin()
+		}
+		this.render()
 	}
 
 	boardSetup () {
@@ -43,7 +46,7 @@ class Grid {
 		this.board.cells.forEach(function(cells) {
 			cells.forEach(function(cell) {
 				if (cell.reveal == true) { 
-					element[counter].className = counter + ' reveal'
+					element[counter].className = counter + ' reveal' +' value'+cell.value
 					element[counter].innerHTML = cell.value
 				}
 				counter++
@@ -51,10 +54,16 @@ class Grid {
 		})
 	}
 
-	gameOver() {
+	gameLose() {
+		var newNode = document.querySelector('h2')
+		newNode.innerHTML = 'GameOver'
 		this.board.gameOver()
 	}
-	
 
+	gameWin() {
+		var newNode = document.querySelector('h2')
+		newNode.innerHTML = 'You Win!'
+		this.board.gameOver()
+	}
 }					
 export default Grid
