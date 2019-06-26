@@ -1,7 +1,7 @@
 class Grid {
 	constructor({ element, board }) {
 		this.element = element
-		this.model = board
+		this.board = board
 		this.addListeners()
 	}
 
@@ -12,21 +12,22 @@ class Grid {
 		} else{
 			this.element.addEventListener('click', () => {
 				console.log(event.target.value)
+				this.board = 10
 			})
 		}
 	}
 
 	leftEvent() {
 		var index = event.target.classList[0]
-		var i = Math.floor(index / this.model.columns)
-		var j = index % this.model.rows
+		var i = Math.floor(index / this.board.columns)
+		var j = index % this.board.rows
 		
-		this.model.reveal(i, j)
-		this.model.checkWin()
-		if(this.model.cells[i][j].value == 'X') {
+		this.board.reveal(i, j)
+		this.board.checkWin()
+		if(this.board.cells[i][j].value == 'X') {
 			this.gameLose() //-add gameLose fluff here
 		}
-		if (this.model.win == true) {
+		if (this.board.win == true) {
 			this.gameWin()
 		}
 		this.render()
@@ -35,7 +36,7 @@ class Grid {
 	boardSetup () {
 		var counter = 0
 		var element = this.element
-		this.model.cells.forEach(function(cell) {
+		this.board.cells.forEach(function(cell) {
 			cell.forEach(function(cell) {
 				var newNode = document.createElement('div')
 				newNode.className = counter + ' hidden'	
@@ -48,7 +49,7 @@ class Grid {
 	render () {
 		var counter = 0
 		var element = this.element.childNodes
-		this.model.cells.forEach(function(cells) {
+		this.board.cells.forEach(function(cells) {
 			cells.forEach(function(cell) {
 				if (cell.reveal == true) { 
 					element[counter].className = counter + ' reveal' +' value'+cell.value
@@ -62,13 +63,13 @@ class Grid {
 	gameLose() {
 		var newNode = document.querySelector('h2')
 		newNode.innerHTML = 'GameOver'
-		this.model.gameOver()
+		this.board.gameOver()
 	}
 
 	gameWin() {
 		var newNode = document.querySelector('h2')
 		newNode.innerHTML = 'You Win!'
-		this.model.gameOver()
+		this.board.gameOver()
 	}
 }					
 export default Grid
