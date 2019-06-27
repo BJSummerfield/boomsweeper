@@ -6,15 +6,8 @@ class Grid {
 	}
 
 	addListeners() {
-		if (this.element.classList[0] == 'cell-container'){
 			this.element.addEventListener('click', () => {this.leftEvent()
-			})
-		} else{
-			this.element.addEventListener('click', () => {
-				console.log(event.target.value)
-				this.board = 10
-			})
-		}
+	 })
 	}
 
 	leftEvent() {
@@ -22,15 +15,17 @@ class Grid {
 		var i = Math.floor(index / this.board.columns)
 		var j = index % this.board.rows
 		
-		this.board.reveal(i, j)
-		this.board.checkWin()
-		if(this.board.cells[i][j].value == 'X') {
-			this.gameLose() //-add gameLose fluff here
+		if (this.board.win == null) {
+			this.board.reveal(i, j)
+			this.board.checkWin()
+			if(this.board.win === false) {
+				this.gameLose() //-add gameLose fluff here
+			}
+			if (this.board.win === true) {
+				this.gameWin()
+			}
+			this.render()
 		}
-		if (this.board.win == true) {
-			this.gameWin()
-		}
-		this.render()
 	}
 
 	boardSetup () {
@@ -63,13 +58,11 @@ class Grid {
 	gameLose() {
 		var newNode = document.querySelector('h2')
 		newNode.innerHTML = 'GameOver'
-		this.board.gameOver()
 	}
 
 	gameWin() {
 		var newNode = document.querySelector('h2')
 		newNode.innerHTML = 'You Win!'
-		this.board.gameOver()
 	}
 }					
 export default Grid

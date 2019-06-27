@@ -5,7 +5,7 @@ class Board {
     this.rows = rows
     this.columns = columns
     this.cells = []
-    this.win = false
+    this.win = null
     this.createBoard()
     this.shuffleBoard()
     this.gridTheBoard()
@@ -48,24 +48,33 @@ class Board {
     reveal(i, j) {
       var cell = this.cells[i][j]
       cell.reveal = true
-      if (cell.value == '') {
+       if (cell.value == '') {
         this.floodFill(i, j)
       }
     }
 
     checkWin() {
       var i = 0
+      var j = 0
       this.cells.forEach(function(cells){
         cells.forEach(function(cell){
-          if (cell.value !== 'X' && cell.reveal == true) {
+          if (cell.reveal == true && cell.value == 'X') {
+            j++
+          } else if (cell.reveal == true && cell.value != 'X') {
             i++
           }
         })
       })
       if (i == (this.rows * this.columns) - this.booms) {
         this.win = true
+        this.gameOver()
+      }
+      if (j != 0) {
+        this.win = false
+        this.gameOver()
       }
     }
+
 
     gameOver() {
       this.cells.forEach(function(cells){
