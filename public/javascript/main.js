@@ -18,23 +18,23 @@ grid.boardSetup();
 banner.addEventListener('click', () => {
 	var difficulty = 'beginner'
 	console.log(event.target.value)
-	if (event.target.value = 'Beginner') {
-		rows = 8
-		columns = 8
-		booms = 10
-		difficulty = 'beginner'
-	} 
+	// if (event.target.value = 'Beginner') {
+	// 	rows = 8
+	// 	columns = 8
+	// 	booms = 10
+	// 	difficulty = 'beginner'
+	// } 
 
-	if (event.target.value = 'Intermediate') {
-		rows = 16
-		columns = 16
-		booms = 30
-		difficulty = 'intermediate'
-	}
-	cells.classList.remove(difficulty)
-	console.log(cells.classList)
-	cells.classList.add(event.target.value.toLowerCase())
-	console.log(cells.classList[1])
+	// if (event.target.value = 'Intermediate') {
+	// 	rows = 16
+	// 	columns = 16
+	// 	booms = 30
+	// 	difficulty = 'intermediate'
+	// }
+	// cells.classList.remove(difficulty)
+	// console.log(cells.classList)
+	// cells.classList.add(event.target.value.toLowerCase())
+	// console.log(cells.classList[1])
 	while (cells.firstChild) {
 		cells.removeChild(cells.firstChild)
 	}
