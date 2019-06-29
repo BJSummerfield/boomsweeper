@@ -1,6 +1,10 @@
 import Cell from "./cell.js"
 class Board {
 	constructor(columns, rows, booms){
+    this.setup(columns, rows, booms)
+  }
+
+  setup(columns, rows, booms) {
     this.booms = booms
     this.rows = rows
     this.columns = columns
@@ -10,7 +14,7 @@ class Board {
     this.shuffleBoard()
     this.gridTheBoard()
     this.valueLoop()
-    
+
   }
 		
     // creates array with the number of booms
@@ -75,7 +79,6 @@ class Board {
       }
     }
 
-
     gameOver() {
       this.cells.forEach(function(cells){
         cells.forEach(function(cell){
@@ -98,9 +101,8 @@ class Board {
         if (this.cells[x][y].reveal == false) {
           this.reveal(x, y)
         }
-      }
-    }     
-  }
+      }}
+    }
   	
   	// loop through each cell checking neighbors
     valueLoop() {

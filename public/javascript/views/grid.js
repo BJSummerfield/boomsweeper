@@ -11,20 +11,23 @@ class Grid {
 	}
 
 	leftEvent() {
-		var index = event.target.classList[0]
-		var i = Math.floor(index / this.board.columns)
-		var j = index % this.board.rows
-		
-		if (this.board.win == null) {
-			this.board.reveal(i, j)
-			this.board.checkWin()
-			if(this.board.win === false) {
-				this.gameLose() //-add gameLose fluff here
+		try {
+			var index = event.target.classList[0]
+			var i = Math.floor(index / this.board.columns)
+			var j = index - (i * this.board.columns)
+			if (this.board.win == null) {
+				this.board.reveal(i, j)
+				this.board.checkWin()
+				if(this.board.win === false) {
+					this.gameLose()
+				}
+				if (this.board.win === true) {
+					this.gameWin()
+				}
+				this.render()
 			}
-			if (this.board.win === true) {
-				this.gameWin()
-			}
-			this.render()
+		}
+		catch(err) {
 		}
 	}
 
@@ -56,12 +59,12 @@ class Grid {
 	}
 
 	gameLose() {
-		var newNode = document.querySelector('h2')
+		var newNode = document.querySelector('h1')
 		newNode.innerHTML = 'GameOver'
 	}
 
 	gameWin() {
-		var newNode = document.querySelector('h2')
+		var newNode = document.querySelector('h1')
 		newNode.innerHTML = 'You Win!'
 	}
 }					

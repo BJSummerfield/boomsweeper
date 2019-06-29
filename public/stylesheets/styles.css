@@ -12,12 +12,10 @@ body{
 	grid-gap: 2px
 }
 
-.difficutly {
+.difficulty {
 	justify-content: center;
-	display: grid;
-	grid-gap: 2px;
-	grid-template-columns: 30px 30px);
-	grid-template-rows: 10px 10px);
+	text-align: center;
+	padding-bottom: 15px;
 }
 
 .reveal {
@@ -39,8 +37,8 @@ body{
 }
 
 .beginner {
-	grid-template-columns: repeat(8, 30px);
-	grid-template-rows: repeat(8, 30px);
+	grid-template-columns: repeat(9, 30px);
+	grid-template-rows: repeat(9, 30px);
 }
 
 .intermediate {
