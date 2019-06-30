@@ -1,16 +1,20 @@
-
 <!DOCTYPE html>
-<html lang="">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoomSweeper</title>
-    <style> body {padding: 0; margin: 0;} </style>
-    <script src="/boomsweeper/public/javascript/main.js"></script>
-    <script src="/boomsweeper/public/javascript/models/board.js"></script> 
-    <script src="/boomsweeper/public/javascript/models/cell.js"></script> 
-    <script src="/boomsweeper/public/javascript/views/grid.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/styles.css">
   </head>
   <body>
+    <title>BoomSweeper</title>
+    <div class="container">
+      <h1 class="title">BoomSweeper</h1>
+      <div class="difficulty">
+        <input type="button" value="Beginner">
+        <input type="button" value="Intermediate">
+        <input type="button" value="Expert">
+      </div>
+      <div class="cell-container beginner"></div>
+      <h2 class="title"></h2>
+    </div>
   </body>
+  <script type="module" src="/public/javascript/main.js"></script>
 </html>
